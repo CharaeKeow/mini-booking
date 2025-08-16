@@ -59,7 +59,7 @@ export const bookings: Booking[] = [
   },
   {
     id: '3',
-    roomId: '2',
+    roomId: '1',
     userId: '2',
     timeSlots: ['13:00', '14:00', '15:00', '16:00', '17:00'],
     date: new Date().toISOString().split('T')[0],
