@@ -2,9 +2,10 @@
 
 import { TIME_SLOTS } from '../constants/time-slots';
 import { bookings, rooms } from '../mock/data';
-import type { GetRoomsResponse } from '../types/api/bookings';
+import type { GetRoomsResponse } from '../types/api/rooms';
 import type { Booking, TimeSlot } from '../types/booking';
 import type { Room } from '../types/room';
+import { getTodayDate } from '../utils/get-today-date';
 
 /**
  * This function retrieves all rooms, show its info, alongside the AVAILABLE time slots.
@@ -41,10 +42,11 @@ type GetRoomAvailabilityParams = {
  * Future enhancement would be to make it to accept a date range. For now, only check for today
  */
 const getRoomAvailability = ({ roomId, date }: GetRoomAvailabilityParams) => {
-  const TODAY = new Date().toISOString().split('T')[0];
-
   // Get today's room booking
-  const roomBookings = getRoomBookingByDate({ roomId, date: date ?? TODAY });
+  const roomBookings = getRoomBookingByDate({
+    roomId,
+    date: date ?? getTodayDate(),
+  });
 
   // Use flatmap to create a new array of the booked time slots of the bookings
   const bookedTimeSlots = roomBookings.flatMap((booking) => booking.timeSlots);

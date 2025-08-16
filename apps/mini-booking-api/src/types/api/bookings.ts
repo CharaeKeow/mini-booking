@@ -1,10 +1,10 @@
-import type { TimeSlot } from '../booking';
+import type { Booking } from '../booking';
 import type { Room } from '../room';
 
-type RoomsWihAvailability = Room & {
-  availableTimeSlots: TimeSlot[];
+type GetUserBookingResponseData = Booking & {
+  room: Room;
 };
 
-export type GetRoomsResponse = {
-  data: RoomsWihAvailability[];
+export type GetUserBookingResponse = {
+  data: GetUserBookingResponseData[];
 };
