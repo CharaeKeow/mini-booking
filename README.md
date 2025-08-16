@@ -2,23 +2,51 @@
 
 Monorepo created using [pnpm workspace](https://pnpm.io/workspaces)
 
-## Local Development Setup
+## Quick Start
 
-// TODO:
+```bash
+# Install dependencies
+pnpm install
 
-## Backend
+# Start backend (port 8080)
+pnpm dev:api
 
-// TODO:
+# Start frontend (port 3000)
+pnpm dev:web
+```
 
-## Frontend
+## Tech Stack
 
-// TODO:
+**Backend:**
+
+- Hono (Never used it, but curious and want to play with it)
+- TypeScript
+- In-memory data storage for DB
+
+**Frontend:**
+
+- Next.js
+- React Query
+- Tailwind CSS
+- TypeScript
+
+**Monorepo:**
+
+- pnpm workspaces
+
+## API Endpoints
+
+- `GET /api/rooms` - Get all rooms with today's availability
+- `POST /api/bookings` - Create a new booking
+- `GET /api/bookings?userId={id}` - Get user's bookings
+
+**Headers:** All requests require `x-user-id` header for authentication simulation.
 
 ## Development Logs
 
 ### Assumptions
 
-1. Assume each booking means book the whole room for the specified time range
+1. Each booking reserves the entire room for the specified time range
 2. The system only handle booking for today.
 
 ### Room Booking Handling
@@ -57,5 +85,15 @@ By right, since this is monorepo, we should consolidate all the configs (ESLint,
 The following warning appears when installing packages:
 
 ```
+
 |  WARN  `node_modules` is present. Lockfile only installation will make it out-of-date
+
 ```
+
+### Future Improvements
+
+- [ ] Replace in-memory storage with PostgreSQL
+- [ ] Implement proper authentication
+- [ ] Add input validation with Zod
+- [ ] Support multi-day bookings
+- [ ] Add comprehensive error handling
