@@ -70,7 +70,7 @@ type GetAllBookingsByDateParams = {
   date: string;
 };
 
-const getRoomBookingByDate = ({
+export const getRoomBookingByDate = ({
   date,
   roomId,
 }: GetAllBookingsByDateParams): Booking[] => {
