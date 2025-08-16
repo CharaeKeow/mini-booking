@@ -16,6 +16,10 @@ Monorepo created using [pnpm workspace](https://pnpm.io/workspaces)
 
 ## Development Logs
 
+### Assumptions
+
+1. Assume each booking means book the whole room for the specified time range
+
 ### Shared Packages
 
 By right, since this is monorepo, we should consolidate all the configs (ESLint, Prettier, TS config, etc.) into the shared packages. However, due to time constraints, this is skipped for now.
