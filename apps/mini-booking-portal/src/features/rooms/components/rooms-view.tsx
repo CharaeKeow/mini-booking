@@ -1,6 +1,8 @@
 'use client';
 
+import { TIME_SLOTS } from '@/constants/time-slots';
 import { useGetAllRooms } from '@/data-access/booking-api/client/rooms';
+import { TimeSlotButton } from './time-slot-button';
 
 // type RoomsViewProps = {};
 
@@ -26,11 +28,22 @@ export const RoomsView = () => {
             <div key={id} className="mb-4 p-4 border rounded">
               <h2 className="text-xl font-semibold">{name}</h2>
               <p>Capacity: {capacity}</p>
-              {/* TODO: Implement Room availability */}
               <h3 className="mt-2">Time Slots:</h3>
-              {availableTimeSlots.map((d, i) => (
-                <div key={i}>{d}</div>
-              ))}
+              <div className="space-y-0.5">
+                {Object.entries(TIME_SLOTS).map(([key, value]) => {
+                  // TODO: This is a quick, not so elegant fix. Will change to another way as future enhancement
+                  const typedKey = key as keyof typeof TIME_SLOTS;
+                  const isAvailable = availableTimeSlots.includes(typedKey);
+
+                  return (
+                    <TimeSlotButton
+                      key={key}
+                      value={value}
+                      isAvailable={isAvailable}
+                    />
+                  );
+                })}
+              </div>
             </div>
           );
         })}
