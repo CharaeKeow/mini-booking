@@ -10,11 +10,9 @@ type GetUserBookingParams = {
   date?: string;
 };
 
-const TODAY_DATE = getTodayDate();
-
 export const getUserBookings = ({
   userId,
-  date = TODAY_DATE,
+  date = getTodayDate(),
 }: GetUserBookingParams): GetUserBookingResponse['data'] => {
   // Return bookings that belong to user id
   const userBookings = bookings.filter(
@@ -45,7 +43,7 @@ export const createBooking = ({
   userId,
   roomId,
   timeSlots,
-  date = TODAY_DATE,
+  date = getTodayDate(),
 }: CreateBookingParams) => {
   const newBooking: Booking = {
     id: `${bookings.length + 1}`,
@@ -67,7 +65,7 @@ type CheckRoomAvailabilityParams = Pick<
 export const checkRoomAvailability = ({
   roomId,
   timeSlots,
-  date = TODAY_DATE,
+  date = getTodayDate(),
 }: CheckRoomAvailabilityParams) => {
   const roomBookings = getRoomBookingByDate({ date, roomId });
 
