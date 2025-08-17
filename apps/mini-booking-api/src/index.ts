@@ -4,7 +4,9 @@ import 'dotenv/config';
 import roomsApi from './api/rooms';
 import bookingsApi from './api/bookings';
 
-const PORT = process.env.PORT ?? 8080; // TODO: To make env type safe by using package like https://github.com/t3-oss/t3-env
+// TODO: To make env type safe by using package like https://github.com/t3-oss/t3-env
+const parsedPortNumber = Number(process.env.PORT);
+const PORT = Number.isNaN(parsedPortNumber) ? 8080 : parsedPortNumber;
 
 const app = new Hono();
 
@@ -18,7 +20,7 @@ app.route('/api', bookingsApi);
 serve(
   {
     fetch: app.fetch,
-    port: PORT as number, // This is ugly. But it's no needed if we make env type safe
+    port: PORT,
   },
   (info) => {
     console.log(`Server is running on http://localhost:${info.port}`);
