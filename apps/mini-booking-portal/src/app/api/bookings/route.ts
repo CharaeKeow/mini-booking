@@ -1,4 +1,4 @@
-import { BOOKING_API_URL } from '@/constants/api';
+import { BOOKING_API_URL } from '@/constants/server-api';
 import { GetUserBookingResponse } from '@/types/api/booking-api';
 import { ApiResponse } from '@/types/api/response';
 import { getAuthHeader } from '@/utils/get-auth-header';
