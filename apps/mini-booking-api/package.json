@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.18.2",
+    "dotenv": "^17.2.1",
     "hono": "^4.9.2"
   },
   "devDependencies": {
+    "@hono/eslint-config": "^2.0.3",
     "@types/node": "^20.11.17",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3"
