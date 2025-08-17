@@ -17,8 +17,6 @@ export const TimeSlotButton = ({
   const createBookingMutation = useCreateBooking();
 
   const handleBooking = () => {
-    if (!isAvailable) return;
-
     createBookingMutation.mutate(
       {
         roomId,
@@ -42,7 +40,7 @@ export const TimeSlotButton = ({
         !isAvailable && 'bg-red-200 cursor-not-allowed',
         createBookingMutation.isPending && 'bg-yellow-300 cursor-wait',
       )}
-      disabled={!isAvailable || createBookingMutation.isPending}
+      disabled={createBookingMutation.isPending}
       onClick={handleBooking}
     >
       {createBookingMutation.isPending ? 'Booking...' : value}
