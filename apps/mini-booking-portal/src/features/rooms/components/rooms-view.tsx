@@ -1,7 +1,7 @@
 'use client';
 
 import { TIME_SLOTS } from '@/constants/time-slots';
-import { useGetAllRooms } from '@/data-access/booking-api/client/rooms';
+import { useGetAllRooms } from '@/data-access/booking-api/client/use-get-all-rooms';
 import { TimeSlotButton } from './time-slot-button';
 
 // type RoomsViewProps = {};

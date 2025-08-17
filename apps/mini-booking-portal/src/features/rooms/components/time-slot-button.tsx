@@ -1,5 +1,5 @@
 import { cn } from '@/utils/cn';
-import { useCreateBooking } from '@/data-access/booking-api/client/bookings';
+import { useCreateBooking } from '@/data-access/booking-api/client/use-create-booking';
 
 type TimeSlotButtonProps = {
   isAvailable: boolean;
