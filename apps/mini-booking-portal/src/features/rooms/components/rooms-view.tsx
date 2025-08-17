@@ -26,7 +26,7 @@ export const RoomsView = () => {
 
           return (
             <div key={roomId} className="mb-4 p-4 border rounded">
-              <h2 className="text-xl font-semibold">{name}</h2>
+              <h2>{name}</h2>
               <p>Capacity: {capacity}</p>
               <h3 className="mt-2">Time Slots:</h3>
               <div className="space-y-0.5">
