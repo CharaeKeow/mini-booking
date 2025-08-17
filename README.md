@@ -62,16 +62,16 @@ The main key question for this project is the design of the handling of room tim
    - Booking from 9 am to 10 am will be stored as `["09:00"]`
    - Booking from 9 am to 11 am will be stored as `["09:00", "10:00"]`
 
-   **Note:** Current implementation only supports consecutive time slots. For non-consecutive bookings (e.g., 9-10am + 2-3pm), users would need to make separate booking requests.
+   **Implementation Note:** While the backend supports multi-slot bookings (as shown above), the current frontend UI implements single-slot booking (clicking a slot attempts to book it). Users wanting consecutive time blocks would make multiple individual bookings. The array-based backend architecture supports both approaches without modification.
 
    With this, the collision checking would be straight forward, since we just have to check that the booking time slot does not overlap with any existing time slots in the array.
 
-2. Store the `startTime` and `endTime` of the booking as a range, and then check for conflicts when booking a room. This is a more elegant approach and the one that I will choose for production app.
+1. Store the `startTime` and `endTime` of the booking as a range, and then check for conflicts when booking a room. This is a more elegant approach and the one that I will choose for production app.
 
 ### Time Constraint Decisions
 
 - In-memory storage instead of database (rapid prototyping)
-- Consecutive slots only (simplified collision logic)
+- Single-slot UI booking (matches requirements, even though the backend supports multi-consecutive-slot)
 - Fixed hourly slots
 
 ### Shared Packages
