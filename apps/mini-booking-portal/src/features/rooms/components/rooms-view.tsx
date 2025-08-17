@@ -22,10 +22,10 @@ export const RoomsView = () => {
       <h1>Today Available Rooms</h1>
       {data &&
         data.map((room) => {
-          const { id, availableTimeSlots, name, capacity } = room;
+          const { id: roomId, availableTimeSlots, name, capacity } = room;
 
           return (
-            <div key={id} className="mb-4 p-4 border rounded">
+            <div key={roomId} className="mb-4 p-4 border rounded">
               <h2 className="text-xl font-semibold">{name}</h2>
               <p>Capacity: {capacity}</p>
               <h3 className="mt-2">Time Slots:</h3>
@@ -40,6 +40,8 @@ export const RoomsView = () => {
                       key={key}
                       value={value}
                       isAvailable={isAvailable}
+                      roomId={roomId}
+                      timeSlot={typedKey}
                     />
                   );
                 })}
