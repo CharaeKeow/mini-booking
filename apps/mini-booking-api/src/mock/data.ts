@@ -66,7 +66,7 @@ export const bookings: Booking[] = [
     createdAt: new Date().toISOString(),
   },
   {
-    id: '2',
+    id: '4',
     roomId: '2',
     userId: '3',
     timeSlots: ['10:00'],
@@ -74,7 +74,7 @@ export const bookings: Booking[] = [
     createdAt: new Date().toISOString(),
   },
   {
-    id: '2',
+    id: '5',
     roomId: '2',
     userId: '3',
     timeSlots: ['11:00'],
