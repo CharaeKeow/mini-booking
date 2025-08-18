@@ -2,6 +2,11 @@
 
 Monorepo created using [pnpm workspace](https://pnpm.io/workspaces)
 
+## Prerequisites
+
+- Node.js (developed with Node version `22.14.0`)
+- [pnpm](https://pnpm.io/) package manager
+
 ## Quick Start
 
 ```bash
